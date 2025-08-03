@@ -1,23 +1,9 @@
 trigger:
-  - main
+  - main  # or replace with your branch name
 
 pool:
-  name: report S.K 
+  name: 'Default'  # This is your agent pool name
+
 steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      addToPath: true
-
-  - script: |
-      python -m pip install --upgrade pip
-      pip install -r requirements.txt
-    displayName: 'Install Dependencies'
-
-  - script: |
-      python main.py
-    displayName: 'Run Main Script'
-
-  - script: |
-      pytest test_app.py
-    displayName: 'Run Tests'
+  - script: hostname
+    displayName: 'Display agent machine name'
