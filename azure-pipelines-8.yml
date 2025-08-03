@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  name: Default
+  demands:
+  - agent.name -equals Report S.K
+
+steps:
+- script: |
+    echo OS info:
+    systeminfo | findstr /B /C:"OS"
+    
+    echo Current Git version:
+    git --version
+
+    echo Current user:
+    whoami
+  displayName: 'System Information'
