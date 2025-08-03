@@ -1,0 +1,17 @@
+trigger:
+  - main   # Replace with your branch name if different
+
+pool:
+  vmImage: 'windows-latest'  # Use Microsoft's up-to-date hosted agent
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '6.x.x'  # Change to your desired version if needed
+
+  - script: dotnet build
+    displayName: 'Build the project'
+
+  - script: dotnet test
+    displayName: 'Run tests'
