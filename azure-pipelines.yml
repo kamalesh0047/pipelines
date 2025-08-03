@@ -2,8 +2,7 @@ trigger:
   - main
 
 pool:
-  name: report S.K  # Change this to match your agent pool name in Azure DevOps
-
+  name: report S.K 
 steps:
   - task: UsePythonVersion@0
     inputs:
